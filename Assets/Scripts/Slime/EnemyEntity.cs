@@ -24,6 +24,16 @@ public class EnemyEntity : MonoBehaviour
         enemyAI = GetComponent<EnemyAI>();
     }
 
+    public EnemyAI GetEnemyAI()
+    {
+        return enemyAI;
+    }
+
+    public EnemySO GetEnemySO()
+    {
+        return enemySO;
+    }
+
     private void Start()
     {
         currentHealth = enemySO.enemyHealth;
@@ -31,7 +41,7 @@ public class EnemyEntity : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Атака");
+        Debug.Log("пїЅпїЅпїЅпїЅпїЅ");
     }
 
     public void TakeDamage(int damage)
