@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {
-            Debug.Log($"Projectile hit player for {damage} damage");
+            player.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

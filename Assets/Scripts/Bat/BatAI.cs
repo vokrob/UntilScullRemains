@@ -1,7 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 using ChoosingDirection.Utils;
+using System;
 
 public class BatAI : MonoBehaviour
 {
@@ -15,19 +15,24 @@ public class BatAI : MonoBehaviour
     [SerializeField] private float roamingTimerMax = 2f;
 
     [Header("Chasing")]
+    [SerializeField] private bool isChaisingEnemy = true;
     [SerializeField] private float chasingDistance = 8f;
-    [SerializeField] private float chasingSpeedMultiplier = 2f;
+    [SerializeField] private float chasingSpeedMultiplier = 2.5f;
 
     [Header("Melee Attack")]
-    [SerializeField] private float meleeAttackDistance = 2f;
-    [SerializeField] private float meleeAttackRate = 1.5f;
+    [SerializeField] private bool isAttackingEnemy = true;
+    [SerializeField] private float meleeAttackDistance = 2.5f;
 
     [Header("Ranged Attack")]
-    [SerializeField] private float rangedAttackDistance = 6f;
-    [SerializeField] private float rangedAttackRate = 2.5f;
+    [SerializeField] private bool isRangedEnemy = true;
+    [SerializeField] private float rangedAttackDistance = 7f;
+
+    [Header("Attack")]
+    [SerializeField] private float attackRate = 2f;
+    private float nextAttackTime = 0f;
 
     private NavMeshAgent navMeshAgent;
-    private State currentState;
+    private State currenState;
     private float roamingTimer;
     private Vector3 roamingPosition;
     private Vector3 startPosition;
@@ -35,7 +40,6 @@ public class BatAI : MonoBehaviour
     private float roamingSpeed;
     private float chasingSpeed;
 
-    private float nextAttackTime = 0f;
     private float nextCheckDirectionTime = 0f;
     private float checkDirectionDuration = 0.1f;
     private Vector3 lastPosition;
@@ -47,7 +51,14 @@ public class BatAI : MonoBehaviour
     {
         get
         {
-            return navMeshAgent.velocity != Vector3.zero;
+            if (navMeshAgent.velocity == Vector3.zero)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 
@@ -56,8 +67,7 @@ public class BatAI : MonoBehaviour
         Idle,
         Roaming,
         Chasing,
-        MeleeAttacking,
-        RangedAttacking,
+        Attacking,
         Death
     }
 
@@ -66,7 +76,7 @@ public class BatAI : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
-        currentState = startingState;
+        currenState = startingState;
 
         roamingSpeed = navMeshAgent.speed;
         chasingSpeed = navMeshAgent.speed * chasingSpeedMultiplier;
@@ -74,19 +84,19 @@ public class BatAI : MonoBehaviour
 
     private void Update()
     {
-        StateHandler();
+        StateHadler();
         MovementDirectionHandler();
     }
 
     public void SetDeathState()
     {
         navMeshAgent.ResetPath();
-        currentState = State.Death;
+        currenState = State.Death;
     }
 
-    private void StateHandler()
+    private void StateHadler()
     {
-        switch (currentState)
+        switch (currenState)
         {
             case State.Roaming:
                 roamingTimer -= Time.deltaTime;
@@ -98,15 +108,11 @@ public class BatAI : MonoBehaviour
                 CheckCurrentState();
                 break;
             case State.Chasing:
-                ChasingTarget();
+                ChasingTagret();
                 CheckCurrentState();
                 break;
-            case State.MeleeAttacking:
-                MeleeAttackingTarget();
-                CheckCurrentState();
-                break;
-            case State.RangedAttacking:
-                RangedAttackingTarget();
+            case State.Attacking:
+                AttackingTarget();
                 CheckCurrentState();
                 break;
             case State.Death:
@@ -122,20 +128,24 @@ public class BatAI : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
         State newState = State.Roaming;
 
-        if (distanceToPlayer <= meleeAttackDistance)
+        if (isChaisingEnemy)
         {
-            newState = State.MeleeAttacking;
-        }
-        else if (distanceToPlayer <= rangedAttackDistance)
-        {
-            newState = State.RangedAttacking;
-        }
-        else if (distanceToPlayer <= chasingDistance)
-        {
-            newState = State.Chasing;
+            if (distanceToPlayer <= chasingDistance)
+            {
+                newState = State.Chasing;
+            }
         }
 
-        if (newState != currentState)
+        float attackDistance = 0f;
+        if (isAttackingEnemy) attackDistance = Mathf.Max(attackDistance, meleeAttackDistance);
+        if (isRangedEnemy) attackDistance = Mathf.Max(attackDistance, rangedAttackDistance);
+
+        if ((isAttackingEnemy || isRangedEnemy) && distanceToPlayer <= attackDistance)
+        {
+            newState = State.Attacking;
+        }
+
+        if (newState != currenState)
         {
             if (newState == State.Chasing)
             {
@@ -147,30 +157,31 @@ public class BatAI : MonoBehaviour
                 roamingTimer = 0f;
                 navMeshAgent.speed = roamingSpeed;
             }
-            else if (newState == State.MeleeAttacking || newState == State.RangedAttacking)
+            else if (newState == State.Attacking)
             {
                 navMeshAgent.ResetPath();
             }
-            currentState = newState;
+            currenState = newState;
         }
     }
 
-    private void MeleeAttackingTarget()
+    private void AttackingTarget()
     {
         if (Time.time > nextAttackTime)
         {
-            OnMeleeAttack?.Invoke(this, EventArgs.Empty);
-            nextAttackTime = Time.time + meleeAttackRate;
-        }
-    }
+            float distanceToPlayer = Vector3.Distance(transform.position, Player.Instance.transform.position);
 
-    private void RangedAttackingTarget()
-    {
-        if (Time.time > nextAttackTime)
-        {
-            SpawnProjectile();
-            OnRangedAttack?.Invoke(this, EventArgs.Empty);
-            nextAttackTime = Time.time + rangedAttackRate;
+            if (isAttackingEnemy && distanceToPlayer <= meleeAttackDistance)
+            {
+                OnMeleeAttack?.Invoke(this, EventArgs.Empty);
+            }
+            else if (isRangedEnemy)
+            {
+                SpawnProjectile();
+                OnRangedAttack?.Invoke(this, EventArgs.Empty);
+            }
+
+            nextAttackTime = Time.time + attackRate;
         }
     }
 
@@ -192,7 +203,7 @@ public class BatAI : MonoBehaviour
         projectileObj.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    private void ChasingTarget()
+    private void ChasingTagret()
     {
         navMeshAgent.SetDestination(Player.Instance.transform.position);
     }
@@ -210,7 +221,7 @@ public class BatAI : MonoBehaviour
             {
                 ChangeFacingDirection(lastPosition, transform.position);
             }
-            else if (currentState == State.MeleeAttacking || currentState == State.RangedAttacking)
+            else if (currenState == State.Attacking)
             {
                 ChangeFacingDirection(transform.position, Player.Instance.transform.position);
             }
@@ -232,9 +243,9 @@ public class BatAI : MonoBehaviour
         return startPosition + DirectionUtils.GetRandomDir() * UnityEngine.Random.Range(roamingDistanceMin, roamingDistanceMax);
     }
 
-    private void ChangeFacingDirection(Vector3 sourcePos, Vector3 targetPos)
+    private void ChangeFacingDirection(Vector3 soursePos, Vector3 targetPos)
     {
-        if (sourcePos.x > targetPos.x)
+        if (soursePos.x > targetPos.x)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }

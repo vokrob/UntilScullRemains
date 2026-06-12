@@ -91,7 +91,7 @@ public class EnemyAI : MonoBehaviour
                 if (roamingTimer < 0)
                 {
                     Roaming();
-                    roamingTimer = roamingDistanceMax;
+                    roamingTimer = roamingTimerMax;
                 }
                 CheckCurrentState();
                 break;

@@ -3,7 +3,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(PolygonCollider2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent(typeof(EnemyAI))]
 public class EnemyEntity : MonoBehaviour
 {
     [SerializeField] private EnemySO enemySO;
@@ -41,7 +40,10 @@ public class EnemyEntity : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("�����");
+        if (collision.TryGetComponent(out Player player))
+        {
+            player.TakeDamage(enemySO.enemyDamageAmount);
+        }
     }
 
     public void TakeDamage(int damage)
@@ -73,7 +75,10 @@ public class EnemyEntity : MonoBehaviour
             boxCollider2D.enabled = false;
             polygonCollider2D.enabled = false;
 
-            enemyAI.SetDeathState();
+            if (enemyAI != null)
+            {
+                enemyAI.SetDeathState();
+            }
             OnDeath?.Invoke(this, EventArgs.Empty);
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [SelectionBase]
@@ -6,17 +7,37 @@ public class Player : MonoBehaviour
     public static Player Instance { get; private set; }
 
     [SerializeField] private float movingSpeed = 10f;
+    [SerializeField] private int maxHealth = 10;
     Vector2 inputVector;
 
     private Rigidbody2D rb;
     private float minMovingSpeed = 0.1f;
     private bool isRunnig = false;
+    private int currentHealth;
+
+    public event EventHandler OnTakeDamage;
+    public event EventHandler OnDeath;
 
     private void Awake()
     {
         Instance = this;
         rb = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        OnTakeDamage?.Invoke(this, EventArgs.Empty);
+        Debug.Log($"Player took {damage} damage. HP: {currentHealth}");
+        if (currentHealth <= 0)
+        {
+            OnDeath?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    public int GetCurrentHealth() => currentHealth;
+    public int GetMaxHealth() => maxHealth;
 
     public void Start()
     {

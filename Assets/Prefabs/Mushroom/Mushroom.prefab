@@ -178,7 +178,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MushroomAI
   enemySO: {fileID: 11400000, guid: 9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f, type: 2}
   startingState: 0
-  projectilePrefab: {fileID: 2000000000000000001, guid: f88babfb75de24f6da62bdc919508c8c, type: 3}
+  projectilePrefab: {fileID: 4000000000000000001, guid: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d7, type: 3}
   rangedAttackDistance: 6
   rangedAttackRate: 2.5
 --- !u!114 &3000000000000000008

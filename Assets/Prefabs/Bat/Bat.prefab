@@ -46,7 +46,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000000000000000001}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -178,7 +178,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -209,7 +209,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.4
-  m_Speed: 2
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 120
@@ -233,17 +233,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BatAI
-  enemySO: {fileID: 11400000, guid: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d0, type: 2}
+  enemySO: {fileID: 11400000, guid: 7c2acd2ae9bcc8adca0772f94da0b471, type: 2}
   startingState: 1
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 2000000000000000001, guid: f88babfb75de24f6da62bdc919508c8c, type: 3}
   roamingDistanceMin: 3
   roamingDistanceMax: 7
   roamingTimerMax: 2
   chasingDistance: 8
-  chasingSpeedMultiplier: 2
-  meleeAttackDistance: 2
+  chasingSpeedMultiplier: 2.5
+  meleeAttackDistance: 2.5
   meleeAttackRate: 1.5
-  rangedAttackDistance: 6
+  rangedAttackDistance: 7
   rangedAttackRate: 2.5
 --- !u!114 &1000000000000000009
 MonoBehaviour:
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a707d807708fd84bb6681ccb2adcf84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyEntity
-  enemySO: {fileID: 11400000, guid: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d0, type: 2}
+  enemySO: {fileID: 11400000, guid: 7c2acd2ae9bcc8adca0772f94da0b471, type: 2}
 --- !u!1 &1000000000000000010
 GameObject:
   m_ObjectHideFlags: 0
