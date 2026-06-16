@@ -50,7 +50,6 @@ public class BatVisual : MonoBehaviour
     private void EnemyEntity_OnDeath(object sender, System.EventArgs e)
     {
         animator.SetBool(IS_DIE, true);
-        spriteRenderer.sortingOrder = -1;
         enemyShadow.SetActive(false);
     }
 

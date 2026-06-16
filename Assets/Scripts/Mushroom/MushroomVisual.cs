@@ -46,7 +46,6 @@ public class MushroomVisual : MonoBehaviour
     private void MushroomEntity_OnDeath(object sender, System.EventArgs e)
     {
         animator.SetBool(IS_DIE, true);
-        spriteRenderer.sortingOrder = -1;
         enemyShadow.SetActive(false);
     }
 

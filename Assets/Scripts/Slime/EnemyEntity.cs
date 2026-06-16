@@ -42,7 +42,7 @@ public class EnemyEntity : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {
-            player.TakeDamage(enemySO.enemyDamageAmount);
+            player.TakeDamage(transform, enemySO.enemyDamageAmount);
         }
     }
 
@@ -68,10 +68,13 @@ public class EnemyEntity : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private bool isDead;
+
     private void DetectDeath()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
+            isDead = true;
             boxCollider2D.enabled = false;
             polygonCollider2D.enabled = false;
 

@@ -1,0 +1,395 @@
+fileFormatVersion: 2
+guid: c3e4dba4e02d0fd48bde3be91b7c7670
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Torse_Run_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 657e422969ea66d44b5d6d10790a9e6d
+      internalID: -891480453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 204
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0612fa6a70d384abde78ce3cc16d1d
+      internalID: 602781408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 204
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11687567d5a8714fb74d4202012ae5e
+      internalID: 1687568489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 137
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e42f8bbd8830b45ac769e4cead172a
+      internalID: -494914720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 137
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f44a3eb536b59d4885afbd5eb9b979f
+      internalID: 814689267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_5
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 137
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fadf4092957b46e41a9b7ce391699fd5
+      internalID: -85588050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a475fe5ed28165b4a96524f531f0a536
+      internalID: -1129204106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_7
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 70
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f2ea127c7b59c64889a8fe12ec04b89
+      internalID: -1160186673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 70
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13401af2d0552ef4684102043c40b46b
+      internalID: -2039041795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 491eaedf6a8f7224bb0a91006de682e5
+      internalID: 1215631707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_10
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 3
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5954d940dd7f4ae4dac08086cb711a6b
+      internalID: 2058308353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Torse_Run_11
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 3
+        width: 68
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51, y: 0.29}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aacd02053be0dd247aaeb8d291d55637
+      internalID: 356308395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0de4fc1757e840b4aae9ec54a648f72e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":4.0},"gridSpriteSize":{"x":68.0,"y":67.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5099999904632568,"y":0.28999999165534975},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":9,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Torse_Run_0: -891480453
+      Torse_Run_1: 602781408
+      Torse_Run_10: 2058308353
+      Torse_Run_11: 356308395
+      Torse_Run_2: 1687568489
+      Torse_Run_3: -494914720
+      Torse_Run_4: 814689267
+      Torse_Run_5: -85588050
+      Torse_Run_6: -1129204106
+      Torse_Run_7: -1160186673
+      Torse_Run_8: -2039041795
+      Torse_Run_9: 1215631707
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

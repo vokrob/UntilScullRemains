@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BatSO
   m_EditorClassIdentifier: Assembly-CSharp::EnemySO
   enemyName: Bat
-  enemyHealth: 8
+  enemyHealth: 1
   enemyDamageAmount: 1
   isRangedEnemy: 1
   rangedAttackDistance: 6

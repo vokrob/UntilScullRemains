@@ -5,20 +5,51 @@ public class ActiveWeapon : MonoBehaviour
     public static ActiveWeapon Instance { get; private set; }
 
     [SerializeField] private Sword sword;
+    [SerializeField] private TorsoAttack torsoAttack;
+    [SerializeField] private Kick kick;
+    [SerializeField] private HeadAttack headAttack;
+    [SerializeField] private LongSword longSword;
+    [SerializeField] private Staff staff;
 
     public void Awake()
     {
         Instance = this;
     }
 
-    public Sword GetActiveWeapon()
+    private void Update()
+    {
+        if (Player.Instance.IsAlive())
+            WeaponPosition();
+    }
+
+    public Sword GetActiveSword()
     {
         return sword;
     }
 
-    private void Update()
+    public TorsoAttack GetActiveTorsoAttack()
     {
-        WeaponPosition();
+        return torsoAttack;
+    }
+
+    public Kick GetActiveKick()
+    {
+        return kick;
+    }
+
+    public HeadAttack GetActiveHeadAttack()
+    {
+        return headAttack;
+    }
+
+    public LongSword GetActiveLongSword()
+    {
+        return longSword;
+    }
+
+    public Staff GetActiveStaff()
+    {
+        return staff;
     }
 
     private void WeaponPosition()

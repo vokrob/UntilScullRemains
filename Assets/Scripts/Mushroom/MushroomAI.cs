@@ -88,7 +88,6 @@ public class MushroomAI : MonoBehaviour
     {
         if (projectilePrefab == null)
         {
-            Debug.LogWarning("[MushroomAI] projectilePrefab is null!");
             return;
         }
 
@@ -108,7 +107,6 @@ public class MushroomAI : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         projectileObj.transform.rotation = Quaternion.Euler(0, 0, angle);
-        Debug.Log($"[MushroomAI] Projectile spawned at {spawnPosition}, direction {direction}");
     }
 
     private void FacingDirectionHandler()
