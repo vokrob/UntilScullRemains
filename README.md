@@ -19,7 +19,7 @@
 - **Среда разработки:** Visual Studio
 - **Спрайты:** LibreSprite
 - **Система контроля версий:** Git, GitHub
-- **Библиотеки:** NavMeshPlus, Unity Input System, TextMeshPro, Tilemap Extras
+- **Библиотеки:** NavMeshPlus, Unity Input System
 
 ## Инструкция по установке
 
