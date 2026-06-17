@@ -17,7 +17,7 @@
 
 - **Движок:** Unity
 - **Язык:** C#
-- **Среда разработки:** Visual Studio
+- **Среда разработки:** Visual Studio 2022
 - **Спрайты:** LibreSprite
 - **Система контроля версий:** Git, GitHub
 - **Библиотеки:** NavMeshPlus, Unity Input System
